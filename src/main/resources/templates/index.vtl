@@ -1,0 +1,12 @@
+<h1>Tamagotchi</h1>
+<button class="btn btn-lg btn-primary" id="create">Create Your Tamagotchi</button>
+
+
+<form action='/tom' method="post" class="myhidden" id="nameform"> ## this posts on submit to /pet in App.java
+  <div class="form-group">
+    <label for="name">Name your pet:</label>
+    <input id="name" name="name" class="form-control" type="text"> ## you will sorely regret it if you do not give it a name, as it's the name that is referenced in the queryParams of App.java
+  </div>
+
+  <button type="submit" class="btn btn-lg btn-warning">Create!</button>
+</form>

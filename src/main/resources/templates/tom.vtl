@@ -1,0 +1,53 @@
+<h1>$newTom.getName()</h1>
+#if($newTom.checkIsAlive())
+  <div class="row">
+    <div class="col-md-3">
+      <div class="progress" id="hunger">
+        <div class="progress-bar-danger" role="progressbar" aria-valuenow="$newTom.getHunger()" aria-valuemin="0" aria-valuemax="100" style="width:$newTom.getHunger()%">
+          $newTom.getHunger()% (Hunger)
+        </div>
+      </div>
+      <div class="progress" id="boredom">
+        <div class="progress-bar-warning" role="progressbar" aria-valuenow="$newTom.getBoredom()" aria-valuemin="0" aria-valuemax="100" style="width:$newTom.getBoredom()%">
+          $newTom.getBoredom()% (Boredom)
+        </div>
+      </div>
+      <div class="progress" id="tiredness">
+        <div class="progress-bar-info" role="progressbar" aria-valuenow="$newTom.getTiredness()" aria-valuemin="0" aria-valuemax="100" style="width:$newTom.getTiredness()%">
+          $newTom.getTiredness()% (Tiredness)
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      #if($newTom.getFlag() == 1)
+        <img src="/stand.gif">
+      #elseif($newTom.getFlag() == 2)
+        <img src="/eat.gif">
+      #elseif($newTom.getFlag() == 3)
+        <img src="/play.gif">
+      #elseif($newTom.getFlag() == 4)
+        <img src="/run.gif">
+      #end
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <form action='/tom-hunger' method="post">
+        <button type="submit" class="btn btn-lg btn-danger">Feed!</button>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <form action='/tom-boredom' method="post">
+        <button type="submit" class="btn btn-lg btn-warning">Play!</button>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <form action='/tom-tiredness' method="post">
+        <button type="submit" class="btn btn-lg btn-info">Run!</button>
+      </form>
+    </div>
+#else
+  <h1>You killed $newTom.getName()</h1>
+  <img src="/dead.gif">
+
+#end
